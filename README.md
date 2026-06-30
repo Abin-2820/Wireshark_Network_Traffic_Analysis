@@ -34,7 +34,7 @@ Used **Statistics → Capture File Properties** to get an overview of the captur
 ```
 Total packets: 39,106
 ```
-
+![not_image](https://github.com/Abin-2820/Wireshark_Network_Traffic_Analysis/blob/8703398733e453f1cec319c9c639ceac7be29e51/Screenshots/1%20-%20Screenshot%20from%202026-06-01%2020-37-20.png)
 ### 2. Identifying the First DNS Resolution
 
 Applied the filter:
@@ -42,7 +42,7 @@ Applied the filter:
 ```
 dns.flags.response == 1
 ```
-
+![not_image](https://github.com/Abin-2820/Wireshark_Network_Traffic_Analysis/blob/8703398733e453f1cec319c9c639ceac7be29e51/Screenshots/2%20-%20Screenshot%20from%202026-06-01%2020-37-31.png)
 This isolates only DNS response packets. The first resolved domain in the capture was:
 
 ```
@@ -57,7 +57,7 @@ Applied the filter:
 ```
 http
 ```
-
+![noy_image]()
 Result: **8 HTTP packets** total in the capture — a small number, which made manual inspection of each one feasible.
 
 ### 4. Identifying the Malicious Download
@@ -67,13 +67,13 @@ Inspected the HTTP GET request header to find the relative path requested by the
 ```
 GET /9GQ5A8/6ctf5JL HTTP/1.1
 ```
-
+![not_image]
 Followed the HTTP stream (**Right-click → Follow → HTTP Stream**) to inspect the full request/response. The server's response header claimed:
 
 ```
 Content-Type: image/gif
 ```
-
+![not_image]()
 However, manually inspecting the **raw bytes of the downloaded object** (via File → Export Objects → HTTP) revealed the true file signature:
 
 ```
